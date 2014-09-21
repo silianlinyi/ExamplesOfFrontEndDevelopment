@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Fullscreen API</title>
+		<style type="text/css">
+			/*全屏状态下，大多数浏览器的CSS支持:full-screen伪类，只有IE11支持:fullscreen伪类。
+			 * 使用这个伪类，可以对全屏状态设置单独的CSS属性。*/
+			:-webkit-full-screen {
+				/* properties */
+			}
+			:-moz-full-screen {
+				/* properties */
+			}
+			:-ms-fullscreen {
+				/* properties */
+			}
+			:full-screen {
+				/*pre-spec */
+				/* properties */
+			}
+			:fullscreen {
+				/* spec */
+				/* properties */
+			}
+			/* deeper elements */
+			:-webkit-full-screen video {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+
+		<video width="800" height="600" id="myVideo" controls>
+		</video>
+
+		<input type="button" name="" id="fullscreen" value="全屏" />
+
+		<script type="text/javascript">
+			// requestFullscreen方法使得浏览器全屏
+			function requestFullscreen(ele) {
+				if (ele.requestFullscreen) {
+					ele.requestFullscreen();
+				} else if (ele.mozRequestFullScreen) {
+					ele.mozRequestFullScreen();
+				} else if (ele.msRequestFullscreen) {
+					ele.msRequestFullscreen();
+				} else if (ele.webkitRequestFullScreen) {
+					ele.webkitRequestFullScreen();
+				}
+			}
+
+			 // 取消全屏
+			function exitFullscreen() {
+				if (document.exitFullscreen) {
+					document.exitFullscreen();
+				} else if (document.msExitFullscreen) {
+					document.msExitFullscreen();
+				} else if (document.mozCancelFullScreen) {
+					document.mozCancelFullScreen();
+				} else if (document.webkitExitFullscreen) {
+					document.webkitExitFullscreen();
+				}
+			}
+
+			 // 返回正处于全屏状态的网页元素
+			function getFullscreenElement() {
+				return document.fullscreenElement ||
+					document.mozFullScreenElement ||
+					document.webkitFullscreenElement;
+			}
+
+			 // 判断浏览器是否支持全屏API
+			function isFullscreenEnabled() {
+				return document.fullscreenEnabled ||
+					document.mozFullScreenEnabled ||
+					document.webkitFullscreenEnabled ||
+					document.msFullscreenEnabled;
+			}
+
+
+			var fullscreen = document.getElementById('fullscreen');
+			var video = document.getElementById('myVideo');
+
+			fullscreen.onclick = function() {
+				requestFullscreen(video);
+			}
+		</script>
+	</body>
+
+</html>

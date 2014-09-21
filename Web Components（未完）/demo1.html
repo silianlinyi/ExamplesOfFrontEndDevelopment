@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<template id="profileTemplate">
+			<div class="profile">
+				<img src="" class="profile_img">
+				<div class="profile_name"></div>
+				<div class="profile_social"></div>
+			</div>
+		</template>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				function supportsTemplate() {
+					return 'content' in document.createElement('template');
+				}
+
+				if (supportsTemplate()) {
+					console.log('支持');
+					var template = document.querySelector('#profileTemplate');
+					template.querySelector('.profile_img').src = 'profile.jpg';
+					template.querySelector('.profile_name').textContent = 'Barack Obama';
+					template.querySelector('.profile_social').textContent = 'Follow me on Twitter';
+					document.body.appendChild(template.content);
+				} else {
+					console.log('不支持');
+				}
+			}
+		</script>
+	</body>
+
+</html>

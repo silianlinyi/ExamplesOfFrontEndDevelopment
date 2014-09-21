@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>3-1 DOM中的事件对象</title>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="button" value="按钮" id="btn" />
+			<a href="http://www.baidu.com/" id="go">Baidu</a>
+		</div>
+
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			var go = document.getElementById('go');
+			
+			function showMsg(e) {
+				e = e || window.event;
+				var type = e.type;
+				var target = e.target || e.srcElement;
+				alert(type);
+				alert(target);
+				// 阻止事件冒泡
+				e.cancelBubble = true;
+			}
+			
+			function showBox() {
+				alert("This is box");
+			}
+			
+			btn.attachEvent('click', showMsg);
+			box.attachEvent('click', showBox);
+			
+			go.attachEvent('click', function(e) {
+				e.cancelBubble = true;
+				// 阻止事件默认行为
+				e.returnValue = true;
+			});
+			
+		</script>
+	</body>
+
+</html>

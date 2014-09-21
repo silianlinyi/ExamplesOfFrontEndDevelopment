@@ -1,0 +1,4 @@
+* dropEffect： 拖放的操作类型，决定了浏览器如何显示鼠标形状，可能的值为 copy、move、link 和 none。
+* effectAllowed：指定所允许的操作，可能的值为 copy、move、link、copyLink、copyMove、linkMove、all、none 和 uninitialized（默认值，等同于all，即允许一切操作）。
+* files：包含一个FileList对象，表示拖放所涉及的文件，主要用于处理从文件系统拖入浏览器的文件。
+* types：储存在DataTransfer对象的数据的类型。

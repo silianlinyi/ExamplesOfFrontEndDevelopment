@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>3-1 DOM中的事件对象</title>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="button" value="按钮" id="btn" />
+			<a href="http://www.baidu.com/" id="go">Baidu</a>
+		</div>
+
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			var go = document.getElementById('go');
+			
+			function showMsg(e) {
+				alert(e.type);
+				alert(e.target);
+				// 阻止事件冒泡
+				e.stopPropagation();
+			}
+			
+			function showBox() {
+				alert("This is box");
+			}
+			
+			btn.addEventListener('click', showMsg, false);
+			box.addEventListener('click', showBox, false);
+			
+			go.addEventListener('click', function(e) {
+				e.stopPropagation();
+				// 阻止事件默认行为
+				e.preventDefault();
+			}, false);
+			
+		</script>
+	</body>
+
+</html>

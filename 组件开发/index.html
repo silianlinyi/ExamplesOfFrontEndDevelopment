@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>UI Panel</title>
+
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/panel.css" />
+
+	</head>
+
+	<body>
+
+		<!--<div class="ui-panel">
+			<div class="title">标题</div>
+			<div class="btns">
+				<a href="javascript:;" class="btn minimize">最小化</a>
+				<a href="javascript:;" class="btn maximize">最大化</a>
+				<a href="javascript:;" class="btn close">关闭</a>
+			</div>
+
+			<div class="ctrl ctrl-r" data-type="r"></div>
+			<div class="ctrl ctrl-b" data-type="b"></div>
+			<div class="ctrl ctrl-rb" data-type="rb"></div>
+		</div>-->
+
+		<script src="js/panel.js"></script>
+		<script type="text/javascript">
+			var panel = new Panel({
+				title: "这是一个Panel",
+				width: 600,
+				height: 400,
+				left: 150,
+				top: 50
+			});
+		</script>
+
+	</body>
+
+</html>

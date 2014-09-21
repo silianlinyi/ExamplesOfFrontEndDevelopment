@@ -1,0 +1,61 @@
+.ui-panel {
+	border: 1px solid #ccc;
+	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.ui-panel .title {
+	background: #eee;
+	text-align: left;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 35px;
+	color: #333;
+	padding-left: 15px;
+	cursor: move;
+}
+.ui-panel .btns {
+	width: 120px;
+	height: 35px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	line-height: 35px;
+	text-align: center;
+	font-size: 12px;
+}
+.ui-panel .btns .btn {
+	width: 40px;
+	height: 100%;
+	float: left;
+	display: block;
+	color: #333;
+	text-decoration: none;
+	cursor: pointer;
+}
+.ui-panel .ctrl {
+	position: absolute;
+}
+.ctrl-r {
+	width: 10px;
+	height: 100%;
+	top: 0;
+	right: 0;
+	cursor: e-resize;
+}
+.ctrl-b {
+	width: 100%;
+	height: 10px;
+	bottom: 0;
+	left: 0;
+	cursor: s-resize;
+}
+.ctrl-rb {
+	width: 10px;
+	height: 10px;
+	bottom: 0;
+	right: 0;
+	cursor: nw-resize;
+}

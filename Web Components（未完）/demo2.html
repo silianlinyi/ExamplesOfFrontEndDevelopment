@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			var proto = Object.create(HTMLElement.prototype);
+			proto.createdCallback = function() {
+				var that = this;
+				this.readAttributes();
+
+				this.innerHTML = "<div class='clock-face-container'>" +
+					"<div class='clock-face-hour'></div>" +
+					"<div class='clock-face-minute'></div>" +
+					"<div class='clock-face-second'></div>" +
+					"</div>";
+
+				this.updateClock();
+				if (!this.hour && !this.minute && !this.second) {
+					setInterval(function() {
+						that.updateClock();
+					}, 1000);
+				}
+			};
+
+			 // Read the attributes off the element and store references on the instance.
+			proto.readAttributes = function() {
+				this.hour = this.getAttribute("hour");
+				this.minute = this.getAttribute("minute");
+				this.second = this.getAttribute("second");
+			};
+
+			 // This sets the CSS transform property on the three clock hands to make
+			 // the clock work. The actual implementation is omitted for brevity.
+			proto.updateClock = function() {};
+
+			proto.attributeChangedCallback = function(attrName, oldVal, newVal) {
+				if (/^(hour|minute|second)$/.test(attrName)) {
+					this.readAttributes();
+					this.updateClock();
+				}
+			};
+
+			document.registerElement("clock-face", {
+				prototype: proto
+			});
+		</script>
+
+		<clock-face hour="9" minute="30" second="10"></clock-face>
+
+		<label for="hour">Hour:</label>
+		<input type="number" value="9" min="1" max="12" id="hour">
+
+		<label for="minute">Minute:</label>
+		<input type="number" value="30" min="0" max="59" id="minute">
+
+		<label for="second">Second:</label>
+		<input type="number" value="10" min="0" max="59" id="second">
+	</body>
+
+</html>

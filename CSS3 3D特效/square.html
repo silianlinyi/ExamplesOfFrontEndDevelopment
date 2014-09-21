@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background: black;
+			}
+			#space {
+				-webkit-perspective: 800;
+				-webkit-perspective-origin: 50% 50%;
+				overflow: hidden;
+				margin-top: 100px;
+			}
+			#faceBox {
+				width: 400px;
+				height: 400px;
+				margin: 0 auto;
+				-webkit-transform-style: preserve-3d;
+				position: relative;
+			}
+			.face {
+				width: 398px;
+				height: 398px;
+				background: #585858;
+				color: #eee;
+				font-weight: bold;
+				font-size: 250px;
+				line-height: 398px;
+				text-align: center;
+				position: absolute;
+				-webkit-transition: -webkit-transform 1s linear;
+				border: 1px solid #FFFFFF;
+			}
+			#face1 {
+				background: #DC422F;
+			}
+			#face2 {
+				background: #F5B400;
+				-webkit-transform-origin: bottom;
+				-webkit-transform: rotateX(90deg);
+			}
+			#face3 {
+				background: #F3F3F3;
+				-webkit-transform-origin: top;
+				-webkit-transform: rotateX(-90deg);
+			}
+			#face4 {
+				background: #3D81F6;
+				-webkit-transform-origin: right;
+				-webkit-transform: rotateY(-90deg);
+			}
+			#face5 {
+				background: #009D54;
+				-webkit-transform-origin: left;
+				-webkit-transform: rotateY(90deg);
+			}
+			#face6 {
+				background: #E87000;
+				-webkit-transform: translateZ(-360px);
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="space">
+			<div id="faceBox">
+				<!--<div class="face" id="face1">1</div>-->
+				<div class="face" id="face2">2</div>
+				<div class="face" id="face3">3</div>
+				<div class="face" id="face4">4</div>
+				<div class="face" id="face5">5</div>
+				<div class="face" id="face6">6</div>
+			</div>
+		</div>
+
+
+	</body>
+
+</html>

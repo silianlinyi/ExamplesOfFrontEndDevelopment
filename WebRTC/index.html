@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<video id="myVideo" autoplay="autoplay" controls="controls" width="600" height="450"></video>
+		<input type="button" name="snapshot" id="snapshot" value="截图" />
+		<canvas id="myCanvas" width="600" height="450"></canvas>
+
+		<script type="text/javascript">
+			var myVideo = document.getElementById('myVideo');
+			var snapshot = document.getElementById('snapshot');
+			var myCanvas = document.getElementById('myCanvas');
+			var ctx = myCanvas.getContext('2d');
+
+
+			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+			if (navigator.getUserMedia) {
+				// 支持
+				navigator.getUserMedia({
+					video: true
+				}, function(stream) {
+					console.log(arguments);
+					myVideo.src = window.URL.createObjectURL(stream);
+					
+				}, function(error) {
+					console.log(error);
+				});
+			} else {
+				// 不支持
+				console.log('不支持');
+			}
+			
+			snapshot.onclick = function() {
+				ctx.drawImage(myVideo, 0, 0);
+			}
+		</script>
+	</body>
+
+</html>

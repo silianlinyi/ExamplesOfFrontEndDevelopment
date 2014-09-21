@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>放大镜特效</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0
+			}
+			#demo {
+				width: 400px;
+				height: 255px;
+				border: 1px solid lightgray;
+				position: relative;
+				margin: 50px 0 0 50px;
+			}
+			#small-box {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			#small-box img {
+				width: 100%;
+				height: 100%;
+			}
+			#small-box #float-box {
+				width: 160px;
+				height: 120px;
+				background: #ffffcc;
+				filter: alpha(opacity=50);
+				opacity: 0.5;
+				position: absolute;
+				display: none;
+				left: 0;
+				top: 0;
+			}
+			#big-box {
+				width: 400px;
+				height: 300px;
+				position: absolute;
+				left: 422px;
+				top: 0;
+				overflow: hidden;
+				border: 1px solid lightgray;
+				display: none;
+			}
+			#big-box img {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="demo">
+			<div id="small-box">
+				<div id="float-box"></div>
+				<img src="macbook-small.jpg" />
+			</div>
+			<div id="big-box">
+				<img src="macbook-big.jpg" />
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var demo = document.getElementById('demo');
+			var smallBox = document.getElementById('small-box');
+			var floatBox = document.getElementById('float-box');
+			var smallImg = smallBox.getElementsByTagName('img')[0];
+			var bigBox = document.getElementById('big-box');
+			var bigImg = bigBox.getElementsByTagName('img')[0];
+
+			smallBox.onmouseenter = function() {
+				floatBox.style.display = 'block';
+				bigBox.style.display = 'block';
+			};
+			
+			smallBox.onmouseleave = function() {
+				floatBox.style.display = 'none';
+				bigBox.style.display = 'none';
+			}
+
+			smallBox.onmousemove = function(e) {
+				var e = e || window.event;
+				var x = e.clientX;
+				var y = e.clientY;
+				var left = x - demo.offsetLeft - floatBox.offsetWidth / 2;
+				var top = y - demo.offsetTop - floatBox.offsetHeight / 2;
+
+				if (left < 0) {
+					left = 0;
+				} else if (left > smallBox.offsetWidth - floatBox.offsetWidth) {
+					left = smallBox.offsetWidth - floatBox.offsetWidth;
+				}
+				
+				if (top < 0) {
+					top = 0;
+				} else if (top > smallBox.offsetHeight - floatBox.offsetHeight) {
+					top = smallBox.offsetHeight - floatBox.offsetHeight;
+				}
+
+				floatBox.style.left = left + 'px';
+				floatBox.style.top = top + 'px';
+				bigImg.style.left = -(left * bigImg.offsetWidth / smallBox.offsetWidth) + 'px';
+				bigImg.style.top = -(top * bigImg.offsetHeight / smallBox.offsetHeight) + 'px';
+			}
+			
+			
+		</script>
+	</body>
+
+</html>

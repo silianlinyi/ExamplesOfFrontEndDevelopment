@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2-3 DOM2级事件处理程序</title>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" id="btn" value="按钮" />
+		</div>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			function showMsg() {
+				alert("这是一个DOM2级事件处理程序");
+			}
+			// DOM 2级添加事件
+			btn.addEventListener('click', showMsg, false);
+			// DOM 2级删除事件
+//			btn.removeEventListener('click', showMsg, false);
+		</script>
+	</body>
+</html>

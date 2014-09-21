@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>2-4 IE级事件处理程序及跨浏览器解决</title>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="button" id="btn" value="按钮" />
+		</div>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+
+			function showMsg() {
+				alert("IE级事件处理程序及跨浏览器解决");
+			}
+			btn.attachEvent('onclick', showMsg);
+			 //			btn.detachEvent('onclick', showMsg);
+
+			var Util = {
+				// 添加事件
+				addEvent: function(ele, type, handler) {
+					if (ele.addEventListener) {
+						ele.addEventListener(type, handler, false);
+					} else if (ele.attachEvent) {
+						ele.attachEvent('on' + type, handler);
+					} else {
+						ele['on' + type] = handler;
+					}
+				},
+
+				// 删除事件
+				removeEvent: function(ele, type, handler) {
+					if (ele.removeEventListener) {
+						ele.removeEventListener(type, handler, false);
+					} else if (ele.detachEvent) {
+						ele.detachEvent('on' + type, handler);
+					} else {
+						ele['on' + type] = null;
+					}
+				}
+			};
+		</script>
+	</body>
+
+</html>

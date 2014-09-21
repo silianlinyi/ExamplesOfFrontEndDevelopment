@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.progress-bar {
+				width: 40px;
+				height: 40px;
+				background: orange;
+			}
+			.progress-bar:hover {
+				width: 100%;
+			}
+			#box1 {
+				-webkit-transition: width 5s linear;
+				-moz-transition: width 5s linear;
+				-ms-transition: width 5s linear;
+				transition: width 5s linear;
+			}
+			#box2 {
+				-webkit-transition: width 5s ease;
+				-moz-transition: width 5s ease;
+				-ms-transition: width 5s ease;
+				transition: width 5s ease;
+			}
+			#box3 {
+				-webkit-transition: width 5s ease-in;
+				-moz-transition: width 5s ease-in;
+				-ms-transition: width 5s ease-in;
+				transition: width 5s ease-in;
+			}
+			#box4 {
+				-webkit-transition: width 5s ease-out;
+				-moz-transition: width 5s ease-out;
+				-ms-transition: width 5s ease-out;
+				transition: width 5s ease-out;
+			}
+			#box5 {
+				-webkit-transition: width 5s ease-in-out;
+				-moz-transition: width 5s ease-in-out;
+				-ms-transition: width 5s ease-in-out;
+				transition: width 5s ease-in-out;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<p>linear</p>
+			<div class="progress-bar" id="box1"></div>
+			<p>ease</p>
+			<div class="progress-bar" id="box2"></div>
+			<p>ease-in</p>
+			<div class="progress-bar" id="box3"></div>
+			<p>ease-out</p>
+			<div class="progress-bar" id="box4"></div>
+			<p>ease-in-out</p>
+			<div class="progress-bar" id="box5"></div>
+		</div>
+	</body>
+</html>

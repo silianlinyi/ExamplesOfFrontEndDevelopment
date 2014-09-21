@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<!--
+			MediaStreamTrack.getSources方法的回调函数，可以得到一个本机的摄像头和麦克风的列表	
+		-->
+
+		<script type="text/javascript">
+			MediaStreamTrack.getSources(function(sourceInfos) {
+				console.log(sourceInfos);
+			});
+		</script>
+	</body>
+
+</html>

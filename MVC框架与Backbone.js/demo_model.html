@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script src="js/lib/jquery.js"></script>
+		<script src="js/lib/underscore.js"></script>
+		<script src="js/lib/backbone.js"></script>
+		
+		<script type="text/javascript">
+			var User = Backbone.Model.extend({
+				defaults: {
+					name: "",
+					email: ""
+				}
+			});
+			var user = new User({
+				id: 1,
+				name: "zhangsan",
+				email: "zhangsan@gmail.com",
+				idAttribute: "uid"
+			});
+		</script>
+	</body>
+</html>
