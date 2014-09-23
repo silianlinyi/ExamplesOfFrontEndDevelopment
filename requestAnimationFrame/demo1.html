@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.div {
+				width: 50px;
+				height: 50px;
+				background: #222;
+				float: left;
+				margin: 10px;
+				color: #FFFFFF;
+				font-size: 30px;
+				line-height: 50px;
+				text-align: center;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+		
+	<body>
+		
+		<input type="button" name="startBtn" id="startBtn" value="开始" />
+		<input type="button" name="stopBtn" id="stopBtn" value="结束" />
+		
+		<script type="text/javascript">
+			window.requestAnimationFrame = (function() {
+				return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimationFrame ||
+					function(callback) {
+						window.setTimeout(callback, 1000 / 60);
+					};
+			})();
+			
+			var startBtn = document.getElementById('startBtn');
+			var stopBtn = document.getElementById('stopBtn');
+			var globalID;
+			
+			function repeat() {
+				var div = document.createElement('div');
+				div.className = 'div';
+				div.innerHTML = globalID;
+				document.body.appendChild(div);
+				globalID = requestAnimationFrame(repeat);
+			}
+			
+			startBtn.onclick = function() {
+				globalID = requestAnimationFrame(repeat);
+			};
+			
+			stopBtn.onclick = function() {
+				cancelAnimationFrame(globalID);
+			}
+			
+		</script>
+	</body>
+
+</html>
