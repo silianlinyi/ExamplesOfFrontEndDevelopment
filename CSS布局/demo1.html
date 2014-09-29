@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#main1 {
+				width: 600px;
+				margin: 0 auto;
+			}
+			#main2 {
+				max-width: 600px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="main1">
+			设置块级元素的 width 可以阻止它从左到右撑满容器。然后你就可以设置左右外边距为 auto 来使其水平居中。元素会占据你所指定的宽度，然后剩余的宽度会一分为二成为左右外边距。 
+			唯一的问题是，当浏览器窗口比元素的宽度还要窄时，浏览器会显示一个水平滚动条来容纳页面。让我们再来改进下这个方案...
+		</div>
+		<hr />
+		<div id="main2">
+			在这种情况下使用 max-width 替代 width 可以使浏览器更好地处理小窗口的情况。这点在移动设备上显得尤为重要，调整下浏览器窗口大小检查下吧！
+			顺便提下， 所有的主流浏览器包括IE7+在内都支持 max-width ，所以放心大胆的用吧。
+		</div>
+
+	</body>
+
+</html>

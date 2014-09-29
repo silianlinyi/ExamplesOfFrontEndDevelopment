@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var str = "3562123761";
+			
+			function convert(str) {
+				var num = str.length % 3;
+				var arr = [];
+				
+				if (num === 0) {
+					for(var i = 0; i < str.length; i+=3) {
+						arr.push(str.substring(i, i + 3));
+					}
+				} else {
+					arr.push(str.substring(0,num));
+					for(var i = num; i < str.length; i+= 3) {
+						arr.push(str.substring(i, i +3));
+					}
+				}
+				return arr.join(',');
+			}
+		</script>
+	</body>
+
+</html>
