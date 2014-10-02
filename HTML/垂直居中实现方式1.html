@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>垂直居中实现方式1</title>
+		<style type="text/css">
+			#wrapper {
+				display: table;
+				width: 300px;
+				height: 200px;
+				background-color: #eee;
+			}
+			#cell {
+				display: table-cell;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="cell">
+				<div class="content">Content goes here</div>
+			</div>
+		</div>
+		<!--
+			这个方法把一些 div 的显示方式设置为表格，因此我们可以使用表格的 vertical-align property 属性。
+			优点：content 可以动态改变高度(不需在 CSS 中定义)。当 wrapper 里没有足够空间时， content 不会被截断
+			缺点：Internet Explorer(甚至 IE8 beta)中无效，许多嵌套标签(其实没那么糟糕，另一个专题)
+		-->
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#container {
+				display: -moz-box;
+				display: -webkit-box;
+				border: 1px solid red;
+				-moz-box-orient: vertical;
+				-webkit-box-orient: vertical;
+				width: 800px;
+				height: 400px;
+			}
+			#text-a {
+				background-color: orange;
+				height: 100px;
+			}
+			#text-b {
+				background-color: yellow;
+				-moz-box-flex: 1;
+				-webkit-box-flex: 1;
+			}
+			#text-c {
+				background-color: limegreen;
+				height: 60px;
+			}
+			#text-a,#text-b, #text-c {
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				font-size: 1.5em;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="text-a">列1</div>
+			<div id="text-b">列2</div>
+			<div id="text-c">列3</div>
+		</div>
+	</body>
+</html>

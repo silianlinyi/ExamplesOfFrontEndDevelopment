@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>垂直居中实现方式2</title>
+		<style type="text/css">
+			#content {
+				position: absolute;
+				height: 240px;
+				top: 50%;
+				margin-top: -120px;
+				background-color: lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			这个方法使用绝对定位的 div，把它的 top 设置为 50％，top margin 设置为负的 content 高度。这意味着对象必须在 CSS 中指定固定的高度。
+			因为有固定高度，或许你想给 content 指定 overflow:auto，这样如果 content 太多的话，就会出现滚动条，以免content 溢出。
+			优点：适用于所有浏览器，不需要嵌套标签
+			缺点：没有足够空间时，content 会消失(类似div 在 body 内，当用户缩小浏览器窗口，滚动条不出现的情况)
+		-->
+		<div id="content">Content goes here</div>
+	</body>
+</html>

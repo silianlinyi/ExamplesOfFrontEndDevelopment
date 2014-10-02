@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>垂直居中实现方式3</title>
+		<style type="text/css">
+			#content {
+				height: 100px;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			这个方法只能将单行文本置中。只需要简单地把 line-height 设置为那个对象的 height 值就可以使文本居中了。
+			优点：适用于所有浏览器，无足够空间时不会被截断
+			缺点：只对文本有效(块级元素无效)，多行时，断词比较糟糕
+			这个方法在小元素上非常有用，例如使按钮文本或者单行文本居中
+		-->
+		<div id="content">Content goes here</div>
+		</div>
+	</body>
+</html>

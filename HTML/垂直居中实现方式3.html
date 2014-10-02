@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>垂直居中实现方式3</title>
+		<style type="text/css">
+			#content {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				height: 240px;
+				width: 70%;
+				background-color: lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			这个方法使用了一个 position:absolute，有固定宽度和高度的 div。这个 div 被设置为 top:0; bottom:0;
+			但是因为它有固定高度，其实并不能和上下都间距为 0，因此 margin:auto; 会使它居中。使用 margin:auto;使块级元素垂直居中是很简单的。
+			优点：简单
+			缺点：IE(IE8 beta)中无效，无足够空间时，content 被截断，但是不会有滚动条出现
+		-->
+		<div id="content">Content goes here</div>
+		</div>
+	</body>
+</html>
