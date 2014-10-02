@@ -5,32 +5,30 @@
 		<title></title>
 		<style>
 			#container {
+				display: box;
 				display: -moz-box;
 				display: -webkit-box;
 				border: 1px solid red;
-				-moz-box-orient: horizontal;
-				-webkit-box-orient: horizontal;
+				-moz-box-orient: vertical;
+				-webkit-box-orient: vertical;
 				width: 800px;
-				height: 400px;
+				height: 500px;
 			}
 			#text-a {
 				background-color: orange;
-				width: 200px;
 			}
 			#text-b {
 				background-color: yellow;
-				-moz-box-flex: 1;
-				-webkit-box-flex: 1;
 			}
 			#text-c {
 				background-color: limegreen;
-				width: 160px;
 			}
 			#text-a,#text-b, #text-c {
 				-moz-box-sizing: border-box;
 				-webkit-box-sizing: border-box;
 				font-size: 1.5em;
 				font-weight: bold;
+				height: 150px;
 			}
 		</style>
 	</head>

@@ -6,15 +6,22 @@
 		<style type="text/css">
 			/* 定义包含框为盒子布局 */
 			#container {
+				display: box;
 				display: -moz-box;
 				display: -webkit-box;
+				-moz-box-orient: vertical;
+				-webkit-box-orient: vertical;
 			}
 			#left-sidebar {
+				-webkit-box-ordinal-group: 3;
+				-moz-box-ordinal-group: 3;
 				width: 160px;
 				padding: 20px;
 				background-color: orange;
 			}
 			#contents {
+				-webkit-box-ordinal-group: 1;
+				-moz-box-ordinal-group: 1;
 				/* 定义中间列宽度为自适应显示 */
 				-moz-box-flex: 1;
 				-webkit-box-flex: 1;
@@ -22,6 +29,8 @@
 				background-color: yellow;
 			}
 			#right-sidebar {
+				-webkit-box-ordinal-group: 2;
+				-moz-box-ordinal-group: 2;
 				width: 160px;
 				padding: 20px;
 				background-color: limegreen;

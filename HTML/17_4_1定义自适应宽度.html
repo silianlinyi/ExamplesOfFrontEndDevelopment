@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8" />
 		<title>测试</title>
 		<style type="text/css">
 			/* 定义包含框为盒子布局 */
 			#container {
-				display: -moz-box;
+				display: box;
 				display: -moz-box;
 				display: -webkit-box;
 			}
@@ -17,7 +16,9 @@
 				background-color: orange;
 			}
 			#contents {
-				width: 500px;
+				/* 定义中间列宽度为自适应显示 */
+				-moz-box-flex: 1;
+				-webkit-box-flex: 1;
 				padding: 20px;
 				background-color: yellow;
 			}
@@ -58,7 +59,6 @@
 				<p>JavaScript时代的大幕才刚刚拉开。在今年的JSConf上，一个核心主题就是“JavaScript到JavaScript的编译器”，也被人们看成是未来的一个主要趋势。Google在“编译生成JavaScript代码”方面是首开先河者。据我所知，GWT（Google Web Toolkit）应 该是通过编译（从Java代码）生成JavaScript代码的第一个框架。以前我对GWT并没有太重视，只是觉得它是一个致力于拯救那些Java程序员 的框架，好让他们不必因为（学习）编写JavaScript而浪费时间。可是，GWT在编译过程中对JavaScript做了那么多的优化，简直是太神
 					了。Closure就是一个“JavaScript到JavaScript的编译器”，能够实现同样级别的优化。Traceur，这是几个星期前才冒出来的一个框架，通过它能够试验JavaScript的新特性，换句话说，它可以把带有实验性语言特性的JavaScript代码编译成可以在所有现代平台中运行的JavaScript代码。
 				</p>
-
 			</div>
 			<div id="right-sidebar">
 				<h2>友情链接</h2>
