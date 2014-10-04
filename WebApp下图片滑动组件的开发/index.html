@@ -31,12 +31,15 @@
 				padding: 0;
 				overflow: hidden;
 				height: 100%;
+				width: 100%;
 			}
 			li {
 				position: absolute;
 				display: -webkit-box;
 				-webkit-box-pack: center;
 				-webkit-box-align: center;
+				/*防止浏览器闪白*/
+				-webkit-backface-visibility: hidden;
 			}
 			li img {
 				max-width: 100%;
@@ -51,6 +54,7 @@
 			
 		</div>
 		
+		<script src="slider.js"></script>
 		<script src="index.js"></script>
 
 	</body>
