@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button id="btn1">打开</button>
+		<button id="btn2">关闭</button>
+		
+		<script type="text/javascript">
+			var btn1 = document.getElementById('btn1');
+			var btn2 = document.getElementById('btn2');
+			
+			btn1.onclick = function() {
+//				window.open('window_open.html');
+//				window.open('window_open.html', 'windowname');
+				window.open('window_open.html', 'windowname', 'height = 200, width = 200, left = 200, top = 100');
+			}
+			
+			btn2.onclick = function() {
+				window.close();
+			}
+		</script>
+		
+	</body>
+</html>

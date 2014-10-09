@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="text" name="" id="myInput" value="" />
+		
+		<script type="text/javascript">
+			var myInput = document.getElementById('myInput');
+			var defaultValue = "alipay WD Team";
+			
+			myInput.onblur = function() {
+				this.value = this.value == '' ? defaultValue: this.value;
+			}
+			
+			myInput.onfocus = function() {
+				this.value = this.value == defaultValue ? '' : this.value;
+			}
+		</script>
+		
+	</body>
+</html>

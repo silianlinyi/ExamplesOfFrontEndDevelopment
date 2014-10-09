@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div class="A">
+			<div class="B">
+				<div class="D">
+					<div class="E" id="E"></div>
+				</div>
+			</div>
+			<div class="C"></div>
+		</div>
+		
+		<script type="text/javascript">
+			function getParents(ele) {
+				var ret = [];
+				while((ele = ele.parentNode) && ele.nodeType !== 9) {
+					ret.push(ele);
+				}
+				return ret;
+			}
+			
+			var E = document.getElementById('E');
+			
+			
+		</script>
+	</body>
+</html>

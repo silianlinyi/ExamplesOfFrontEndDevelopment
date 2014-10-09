@@ -1,47 +1,53 @@
-body {
-	margin: 0;
-	padding: 40px;
-}
-.panel {
-	width: 400px;
-	height: 240px;
-	border: 1px solid #ccc;
+.ui.panel {
 	position: absolute;
+	border: 1px solid #eee;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
-	user-select: none;
+	left: 0;
+	top: 0;
+	box-shadow: 0px 0px 5px #eee;
 }
-.panel .title {
+.ui.title {
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #eee;
 	background: #eee;
-	text-align: center;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 30px;
-	color: #333;
+	text-indent: 0.5em;
 	cursor: move;
+	color: #333333;
 }
-.ui-panel-ctrl-r {
+.ui.ctrl.r, .ui.ctrl.l {
 	width: 10px;
 	height: 100%;
 	position: absolute;
 	top: 0;
-	right: 0;
 	cursor: ew-resize;
 }
-.ui-panel-ctrl-b {
+.ui.ctrl.r {
+	right: 0;
+}
+.ui.ctrl.l {
+	left: 0;
+}
+.ui.ctrl.b {
 	width: 100%;
 	height: 10px;
 	position: absolute;
 	bottom: 0;
-	left: 0;
 	cursor: ns-resize;
 }
-.ui-panel-ctrl-rb {
+.ui.ctrl.rb, .ui.ctrl.lb {
 	width: 10px;
 	height: 10px;
 	position: absolute;
 	bottom: 0;
+}
+.ui.ctrl.rb {
 	right: 0;
 	cursor: nwse-resize;
+}
+.ui.ctrl.lb {
+	left: 0;
+	cursor: nesw-resize;
 }
