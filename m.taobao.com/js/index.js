@@ -1,4 +1,3 @@
-//所有的数据
 var data = [{
 	src: "imgs/1.png"
 }, {

@@ -16,13 +16,13 @@
 		this.config = config;
 		this.wrapper = config.wrapper;
 		this.data = config.data;
+		this.len = config.data.length;
 		this.scaleW = parseInt(css(this.wrapper, 'width'));
 		this.index = 0;
 	};
 
 	Slider.prototype.renderOne = function(index) {
-		var self = this;
-		var data = self.data;
+		var data = this.data;
 		var li = document.createElement('li');
 		var a = document.createElement('a');
 		var img = document.createElement('img');
@@ -30,15 +30,15 @@
 		a.appendChild(img);
 		li.appendChild(a);
 		li.setAttribute('data-index', index);
-		self.sliderList.appendChild(li);
+		this.sliderList.appendChild(li);
 	};
 
 	Slider.prototype.renderList = function() {
 		var self = this;
 		var data = self.data;
-		var len = data.length;
+		var len = self.len;
 		self.sliderList = document.createElement('ul');
-		self.sliderList.style.width = self.scaleW * len + 'px';
+		self.sliderList.style.width = self.scaleW * (len + 2) + 'px';
 		self.sliderList.style.webkitTransform = 'translate3d(' + (-self.scaleW) + 'px, 0px, 0px)';
 		self.renderOne(len - 1);
 		for (var i = 0; i < len; i++) {
@@ -83,6 +83,7 @@
 			e.preventDefault();
 			self.offsetX = 0;
 			self.startX = e.touches[0].clientX;
+			stop();
 		};
 		var moveHandler = function(e) {
 			self.offsetX = e.touches[0].clientX - self.startX;
@@ -96,42 +97,47 @@
 				self.index = self.index - 1;
 			}
 			self.goto(self.index);
+			play();
+		};
+		var play = function() {
+			self.timer = setInterval(function() {
+				self.index += 1;
+				self.goto(self.index);
+			}, 3000);
+		};
+		var stop = function() {
+			clearInterval(self.timer);
 		};
 
 		sliderList.addEventListener('touchstart', startHandler);
 		sliderList.addEventListener('touchmove', moveHandler);
 		sliderList.addEventListener('touchend', endHandler);
-
-		self.sliderList.addEventListener('webkitTransitionEnd', function(e) {
-			if (self.index === -1) {
-				self.index = self.data.length - 1;
-				console.log('self.index = ' + self.index);
-			} else if (self.index === self.data.length) {
-				self.index = 0;
-				console.log('self.index = ' + self.index);
-			}
+		play();
+		
+		self.sliderList.addEventListener('webkitTransitionEnd', function() {
+			console.log('webkitTransitionEnd');
+			self.sliderList.style.webkitTransition = 'none';
+			self.sliderList.style.webkitTransform = 'translate3d(' + (-self.scaleW * (self.index + 1)) + 'px, 0px, 0px)';
 		});
 	};
 
 	Slider.prototype.goto = function(index) {
-		console.log(index);
 		var self = this;
 		self.sliderList.style.webkitTransition = 'all ease-out 0.2s';
 		self.sliderList.style.webkitTransform = 'translate3d(' + (-self.scaleW * (index + 1)) + 'px, 0px, 0px)';
 		var spanList = self.spanList;
-		var len = spanList.length;
+		var len = self.len;
 		for (var i = 0; i < len; i++) {
 			if (spanList[i].className = 'cur') {
 				spanList[i].className = '';
 			}
 		}
 		if (index === -1) {
-			spanList[spanList.length - 1].className = 'cur';
-		} else if (index === spanList.length) {
-			spanList[0].className = 'cur';
-		} else {
-			spanList[index].className = 'cur';
+			self.index = len - 1;
+		} else if (index === len) {
+			self.index = 0;
 		}
+		spanList[self.index].className = 'cur';
 	};
 
 
