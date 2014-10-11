@@ -3,11 +3,42 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	</head>
 	<body>
 		
 		
-		
+		<script type="text/javascript">
+			document.addEventListener('touchstart', function(e) {
+				var h3 = document.createElement('h3');
+				h3.innerHTML = 'touchstart';
+				document.body.appendChild(h3);
+			});
+			
+			document.addEventListener('touchmove', function(e) {
+				var h3 = document.createElement('h3');
+				h3.innerHTML = 'touchmove';
+				document.body.appendChild(h3);
+			});
+			
+			document.addEventListener('touchend', function(e) {
+				var h3 = document.createElement('h3');
+				h3.innerHTML = 'touchend';
+				document.body.appendChild(h3);
+			});
+			
+			document.addEventListener('touchenter', function(e) {
+				var h3 = document.createElement('h3');
+				h3.innerHTML = 'touchenter';
+				document.body.appendChild(h3);
+			});
+			
+			document.addEventListener('touchleave', function(e) {
+				var h3 = document.createElement('h3');
+				h3.innerHTML = 'touchleave';
+				document.body.appendChild(h3);
+			});
+		</script>
 		
 	</body>
 </html>
