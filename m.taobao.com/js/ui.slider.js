@@ -115,7 +115,6 @@
 		play();
 		
 		self.sliderList.addEventListener('webkitTransitionEnd', function() {
-			console.log('webkitTransitionEnd');
 			self.sliderList.style.webkitTransition = 'none';
 			self.sliderList.style.webkitTransform = 'translate3d(' + (-self.scaleW * (self.index + 1)) + 'px, 0px, 0px)';
 		});
@@ -139,8 +138,6 @@
 		}
 		spanList[self.index].className = 'cur';
 	};
-
-
 
 	root.Slider = Slider;
 
