@@ -8,39 +8,8 @@
 
 	<body>
 
-		<script type="text/javascript">
-			// 新建一个XMLHttpRequest实例对象
-			var xhr = new XMLHttpRequest();
-			
-			// 指定通信过程中状态改变时的回调函数
-			xhr.onreadystatechange = function(e) {
-				console.log(xhr.readyState);
-				// 通信成功时，状态值为4
-				if (xhr.readyState === 4) {
-					if (xhr.status === 200) {
-						// 处理服务器发送过来的数据
-					} else {
-						// 处理错误
-					}
-				}
-			}
-			
-			// open方法用于指定HTTP动词、请求的网址、是否异步
-			xhr.open('GET', './index.html', true);
-			
-			// 发送HTTP请求
-			xhr.send(null);
-			
-			
-			
-			var formData = new FormData();
-			
-			formData.append("username", "kyle");
-			formData.append("password", "123456");
-			
-			xhr.send(formData);
-			
-		</script>
+		<script src="ajax.js"></script>
+		<script src="index.js"></script>
 
 	</body>
 
