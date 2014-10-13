@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>document.write方式</title>
+		<script type="text/javascript">
+			function loadjs(filename) {
+				document.write('<script type="text/javascript" src="'+filename+'">');
+				document.write('<\/script>');
+				alert("loadjs() exit...");
+			}
+			var script = 'demo4.js';
+			loadjs(script);
+			alert("loadjs() finished...");
+		</script>
+		<script type="text/javascript">
+			alert('another block...');
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
