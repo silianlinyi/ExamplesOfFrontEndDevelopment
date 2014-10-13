@@ -1,12 +1,17 @@
-(function() { /* code */ }());
-// 或者
-(function() { /* code */ })();
+var foo = (function() {
+	var value = 100
+	
+	return {
+		getValue: function() {
+			return value;
+		},
+		setValue: function(v) {
+			value = v;
+		}
+	};
+}());
 
-var i = function() {return 10;}();
-true && function() { /* code */ }();
-0, function() { /* code */ }();
-
-!function() { /* code */ }();
-~function() { /* code */ }();
--function() { /* code */ }();
-+function() { /* code */ }();
+foo.getValue(); // 100
+foo.value; // undefined
+foo.setValue(200);
+foo.getValue(); // 200
