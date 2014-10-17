@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<div id="info"></div>
+
+		<script type="text/javascript">
+			var info = document.getElementById('info');
+
+			console.time('time1');
+			for (var i = 0; i < 5000; i++) {
+				info.innerHTML += 'a';
+			}
+			console.timeEnd('time1');
+			
+			console.time('time2');
+			var ret = '';
+			for (var j = 0; j < 5000; j++) {
+				ret += 'a';
+			}
+			info.innerHTML = ret;
+			console.timeEnd('time2');
+		</script>
+
+	</body>
+
+</html>

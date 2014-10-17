@@ -1,5 +1,5 @@
-ajax({
-	method: 'POST',
+Util.ajax({
+	method: 'get',
 	url: './server.js',
 	data: {
 		username: 'kyle',

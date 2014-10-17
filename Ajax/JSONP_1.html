@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			function addScriptTag(src) {
+				var script = document.createElement('script');
+				script.setAttribute("type", "text/javascript");
+				script.src = src;
+				document.body.appendChild(script);
+			}
+
+			window.onload = function() {
+				addScriptTag("http://weitang.jios.org:3000/data?callback=foo");
+			}
+
+			function foo(data) {
+				console.log(data);
+			};
+		</script>
+
+	</body>
+
+</html>

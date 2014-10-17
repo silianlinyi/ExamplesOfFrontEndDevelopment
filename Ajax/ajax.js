@@ -18,7 +18,7 @@ function createXHR() {
 
 function ajax(options) {
 	var xhr = createXHR();
-	var method = options.method.toUpperCase() || 'GET';
+	var method = (options.method || 'GET').toUpperCase();
 	var url = options.url;
 	var data = options.data;
 	var timeout = options.timeout || 15000;
@@ -45,10 +45,10 @@ function ajax(options) {
 			}
 		}
 	}
-	if (options.method === 'GET') {
+	if (method === 'GET') {
 		xhr.send(null);
-	} else if (options.method === 'POST') {
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")；
+	} else if (method === 'POST') {
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.send(data);
 	}
 	setTimeout(function() {
