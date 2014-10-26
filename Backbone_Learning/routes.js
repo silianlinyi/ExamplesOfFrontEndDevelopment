@@ -7,20 +7,12 @@ module.exports = function(app) {
 			title: "Backbone Learning"
 		});
 	});
-
-	// GET
+	
+	app.get('/users/:_id', user.findUserById);
 	app.get('/users', user.getUsers);
-
-	// POST
 	app.post('/users', user.newUser);
-
-	// PUT
 	app.put('/users', user.updateUser);
-
-	// DELETE
-	app.delete('/users', function(req, res) {
-
-	});
+	app.delete('/users', user.deleteUser);
 
 
 };
