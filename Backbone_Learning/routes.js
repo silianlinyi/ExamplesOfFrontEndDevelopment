@@ -12,7 +12,7 @@ module.exports = function(app) {
 	app.get('/users', user.getUsers);
 	app.post('/users', user.newUser);
 	app.put('/users', user.updateUser);
-	app.delete('/users', user.deleteUser);
+	app.delete('/users/:_id', user.deleteUser);
 
 
 };

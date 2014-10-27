@@ -61,9 +61,16 @@ module.exports = {
 		console.log('updateUser');
 		console.log(req.body);
 	},
-
+	
+	// 删除用户
 	deleteUser: function(req, res, next) {
-		console.log('deleteUser');
+		var _id = req.params._id;
+		User.findByIdAndRemove(_id, function(err, user) {
+			if (err) {
+				return next(err);
+			}
+			return res.json(user);
+		});
 	}
 
 };
