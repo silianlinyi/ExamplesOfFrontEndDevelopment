@@ -1,0 +1,74 @@
+body {
+	background: #EEEEEE;
+	margin: 0;
+	padding: 0;
+}
+.clearfix:after {
+	content: '';
+	display:table;
+	clear:both;
+}
+.clearfix {
+	*zoom:1;
+}
+#books {
+	width: 1150px;
+	margin: 0 auto;
+}
+#addBook {
+	width: 1110px;
+	background: #fff;
+	margin: 10px auto;
+	box-shadow: 0px 0px 1px gray;
+	padding: 10px;
+}
+#addBook label {
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	float: left;
+	display: table-cell;
+	padding-right: 10px;
+}
+#addBook input {
+	float: left;
+	height: 20px;
+}
+#addBook input[type="text"] {
+	width: 200px;
+}
+.bookContainer {
+	width: 350px;
+	background: #fff;
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	box-shadow: 0px 0px 1px gray;
+	position: relative;
+	padding: 10px;
+}
+.bookContainer img {
+	height: 110px;
+	float: left;
+	margin-right: 10px;
+}
+.bookContainer ul {
+	float: left;
+	list-style: none;
+	padding: 0;
+}
+.bookContainer ul li {
+	height: 20px;
+	line-height: 20px;
+}
+.bookContainer ul li:first-child {
+	font-weight: bold;
+}
+.bookContainer .delete {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+
