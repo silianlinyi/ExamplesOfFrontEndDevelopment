@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<user>
+		<id>10001</id>
+		<username>张三</username>
+		<age>20</age>
+	</user>
+	<user>
+		<id>10002</id>
+		<username>李四</username>
+		<age>17</age>
+	</user>
+	<user>
+		<id>10003</id>
+		<username>王五</username>
+		<age>32</age>
+	</user>
+	<user>
+		<id>10004</id>
+		<username>赵六</username>
+		<age>40</age>
+	</user>
+</root>

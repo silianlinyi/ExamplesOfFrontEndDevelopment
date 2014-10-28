@@ -18,7 +18,11 @@ module.exports = {
 
 	// 查找用户列表
 	getUsers: function(req, res, next) {
-		User.find({}, function(err, docs) {
+		var page = req.query.page || 0;
+		var size = req.query.size || 10;
+
+		var query = User.find({}).limit(size).skip(page * size);
+		query.exec(function(err, docs) {
 			if (err) {
 				return next(err);
 			}
@@ -61,7 +65,7 @@ module.exports = {
 		console.log('updateUser');
 		console.log(req.body);
 	},
-	
+
 	// 删除用户
 	deleteUser: function(req, res, next) {
 		var _id = req.params._id;
