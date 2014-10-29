@@ -22,6 +22,7 @@ function ajax(options) {
 	var url = options.url;
 	var data = options.data;
 	var timeout = options.timeout || 15000;
+	var timer;
 	// GET请求方式
 	if (method === 'GET' && data) {
 		for (var key in data) {
@@ -30,7 +31,7 @@ function ajax(options) {
 			} else {
 				url += '&';
 			}
-			url += encodeURIComponent(key) + '=' + encodeURIComponent(options.data[key]);
+			url += encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
 		}
 	} else if (method === 'POST') {
 		data = data || {};
@@ -38,6 +39,7 @@ function ajax(options) {
 	xhr.open(method, url, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
+			clearTimeout(timer);
 			if (xhr.status === 200) {
 				options.success.call(this, xhr.responseText, xhr.status, xhr);
 			} else {
@@ -51,7 +53,7 @@ function ajax(options) {
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xhr.send(data);
 	}
-	setTimeout(function() {
+	timer = setTimeout(function() {
 		xhr.abort();
 	}, timeout);
 }
