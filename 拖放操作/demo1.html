@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>范例——拖放</title>
+		<style>
+			body {
+				font-family: 'Microsoft YaHei';
+			}
+			div.drag {
+				background-color:#AACCFF;
+				border:1px solid #666666;
+				cursor:move;
+				height:100px;
+				width:100px;
+				margin:10px;
+				float:left;	
+			}
+			div.drop {
+				background-color:#EEEEEE;
+				border:1px solid #666666;
+				cursor: pointer;
+				height:150px;
+				width:150px;
+				margin:10px;
+				float:left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div draggable="true" class="drag" ondragstart="dragStartHandler(event)">Drag me!</div>
+		<div class="drop" ondragenter="dragEnterHandler(event)" ondragover="dragOverHandler(event)" ondrop="dropHandler(event)">Drop here!
+			<ol />
+		</div>
+		<script>
+			var internalDNDType = 'text'; // 设定一个自订的关键词，定义DND数据类型
+			function dragStartHandler(event) {
+			    // 将数据复制到DataTransfer对象，指定DND数据类型
+			    event.dataTransfer.setData(internalDNDType, event.target.textContent);
+			    event.effectAllowed = 'move'; // 设定允许的操作，这里是仅允许移动
+			}
+			// dragEnter事件
+			function dragEnterHandler(event) {
+			    // 检查该拖放是否包含指定的DND数据类型，从而决定是否取消事件
+			    if (event.dataTransfer.types.contains(internalDNDType))
+			      if (event.preventDefault) event.preventDefault(); // 取消事件
+			}
+			// dragOver事件
+			function dragOverHandler(event) {
+			    event.dataTransfer.dropEffect = 'copy';             // 设定回馈
+			    if (event.preventDefault) event.preventDefault(); // 取消事件
+			}
+			// drop事件
+			function dropHandler(event) {
+			    // 获取拖曳时放置的DND数据
+				var data = event.dataTransfer.getData(internalDNDType);
+			    // 下面建立一个li元素，将数据放进去
+			    var li = document.createElement('li');
+			    li.textContent = data;
+			    event.target.lastChild.appendChild(li);
+			}
+		</script>
+	</body>
+
+</html>
